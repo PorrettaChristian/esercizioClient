@@ -27,22 +27,23 @@ public class ClientBase {
 
             PrintWriter out
                     = new PrintWriter(server.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(server.getInputStream()));
+//            BufferedReader in = new BufferedReader(
+//                    new InputStreamReader(server.getInputStream()));
             Scanner tastiera = new Scanner(System.in);
             int num = 0;
             String n = "";
 //            while (n) {
                 System.out.println("inserire numero: ");
-                n = tastiera.next();
+                num = tastiera.nextInt();
 //                System.out.println("frase inserita: " + num);
-                out.println(n);
+                out.println(num);
 //                String risposta = in.readLine();
 //                System.out.println("risposta del server: " + risposta);
 //                System.out.println("hai inserito "+ risposta.split(": ")[1] + " caratteri");
 //            }
-            in.close();
+//            in.close();
             server.close();
+            out.close();
             System.out.println("chiusura connessione");
         } catch (IOException ex) {
             Logger.getLogger(ClientBase.class.getName()).log(Level.SEVERE, null, ex);
